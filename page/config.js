@@ -5,9 +5,9 @@ const config = {
   donorNameAgain: "Julie Marie",
   role: "Nashville, TN",
   imageFile: "jhon.png",
-  totalGoal: 150000,
-  totalDonorsAt100: 2940,
-  donationPercentage: 46,
+  totalGoal: 30000,
+  totalDonorsAt100: 394,
+  donationPercentage: 56,
   description: "<p>Lucy is more than a pet; she’s my best friend, my shadow, my family. She’s been with me through heartbreaks, illness, and loss.</p>
 
 <p>Now, she’s the one fighting to survive… and I feel completely helpless.</p>
