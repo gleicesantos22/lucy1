@@ -164,7 +164,38 @@
     });
   }
 
-  // === 3) Process Facebook Data after Pixel initialization ===
-  processFacebookData();
+ // === 3) Process Facebook Data after Pixel initialization ===
+processFacebookData();
 
-})();
+/* === 4) Append fbclid + fbp + fbc to every outbound “Donate” link ========== */
+function appendFbParamsToLinks() {
+  const fbclid = localStorage.getItem('fbclid') || getCookie('fbclid');
+  const fbp    = localStorage.getItem('fbp')    || getCookie('_fbp');
+  const fbc    = localStorage.getItem('fbc')    || getCookie('_fbc');
+
+  const extra = {};
+  if (fbclid) extra.fbclid = fbclid;
+  if (fbp)    extra.fbp    = fbp;
+  if (fbc)    extra.fbc    = fbc;
+  if (!Object.keys(extra).length) return;            // nothing to add
+
+  /* Add to any link that
+     1) already contains the checkout domain,  OR
+     2) is marked <a data-keep-fb>
+  */
+  document.querySelectorAll('a[data-keep-fb], a[href*="YOUR‑CHECKOUT‑DOMAIN.com"]')
+    .forEach(a => {
+      const u = new URL(a.href);
+      Object.entries(extra).forEach(([k, v]) => u.searchParams.set(k, v));
+      a.href = u.toString();
+    });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', appendFbParamsToLinks);
+} else {
+  appendFbParamsToLinks();
+}
+
+})();            //  <‑‑  keep this closing line
+
