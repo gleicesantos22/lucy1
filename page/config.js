@@ -1,4 +1,4 @@
-const config = {
+window.config = {
   pageTitle: "Help Lucy urgent cancer surgery",
   donorName: "Julie Marie",
   donorNameAgain: "Julie Marie",
@@ -35,5 +35,4 @@ const config = {
   defaultLink: "https://perfectbodyme.co/paymenton",
 };
 
-// If you're using modules:
-export default config;
+
