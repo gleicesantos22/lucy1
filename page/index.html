@@ -12200,7 +12200,7 @@ document.addEventListener("DOMContentLoaded", function() {
                       bis_skin_checked="1"
                     >
                     <div bis_skin_checked="1">
-<p id="description"></p>
+<div id="description"></div>
 
                       </div>
                       
@@ -14629,7 +14629,7 @@ document.querySelectorAll('.patient-image').forEach(function(img) {
   img.src = config.imageFile;
 });
 
-    document.getElementById('description').textContent     = config.description;
+    document.getElementById('description').innerHTML = config.description;
     document.getElementById('role-text').textContent = config.role;
 
     // numeric vars & link already reference config now
