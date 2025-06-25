@@ -5,7 +5,7 @@ window.config = {
   role: "Nashville, TN",
   imageFile: "lucy.png",
   totalGoal: 30000,
-  totalDonorsAt100: 394,
+  totalDonorsAt100: 678,
   donationPercentage: 56,
   // Use a template literal to support multiline HTML
   description: `
