@@ -1,13 +1,35 @@
 // config.js
 const config = {
-  pageTitle: "Support Baby Jhon's Urgent Heart Surgery",
-  donorName: "boy Williams",
-  donorNameAgain: "boy Williams",
-  role: "Single Mother",
+  pageTitle: "Help Lucy urgent cancer surgery",
+  donorName: "Julie Marie",
+  donorNameAgain: "Julie Marie",
+  role: "Nashville, TN",
   imageFile: "jhon.png",
-  totalGoal: 100000,
-  totalDonorsAt100: 2930,
-  donationPercentage: 47,
-  description: "My name is Grace and I am writing this with a broken heart. My baby boy Jhon has been in the ICU since the day he was born. He was diagnosed with a rare and severe heart condition called \"Transposition of the Great Arteries, Pulmonary Valve Stenosis, and a Ventricular Septal Defect (VSD).\" The doctors have told us that this condition is incompatible with life unless he undergoes immediate surgery. 🥺 Since the moment he was born, my husband and I have watched our child fight for every breath. We left everything behind in our small town to be here with him in Boston, where he’s been hooked up to machines, struggling to survive. The pain of seeing him fight this battle, so small and helpless, is unbearable. My heart shatters every time I look at him. He needs two urgent surgeries right here in Boston to survive the next few months. After that, he will need a final surgery in New York. The cost of everything is overwhelming, and we can’t do this alone. I’m begging for your help. Every day, I watch my baby boy fight for his life, but I know the odds are against us. He’s so young, and yet he’s already had to endure more than any child should ever have to go through. But we won’t give up on him, and we can’t let him suffer any longer. Please, I’m asking for your kindness and generosity to help save my son’s life. The surgeries, the medical bills, the care—everything is too much for us to carry on our own. Any donation, no matter how small, can help give him a chance at a future. He deserves that chance. He deserves a life full of love, joy, and happiness. I don’t know how much time we have left, but I will fight for my son with every ounce of strength I have. Please, help us. Together, we can give him the chance to live the life he deserves. Thank you for your kindness, your prayers, and your support. ❤️",
-  defaultLink: "/index.html"
+  totalGoal: 150000,
+  totalDonorsAt100: 2940,
+  donationPercentage: 46,
+  description: "<p>Lucy is more than a pet; she’s my best friend, my shadow, my family. She’s been with me through heartbreaks, illness, and loss.</p>
+
+<p>Now, she’s the one fighting to survive… and I feel completely helpless.</p>
+
+<p>Lucy was diagnosed with a fast-growing cancerous tumor behind her eye. The swelling happened almost overnight. Within days, she was in constant pain and unable to eat.</p>
+
+<p>The vet told me she needs emergency surgery or the tumor will spread to her brain.</p>
+
+<p>She’s only six years old. She used to jump into my bed every morning. Now she just lies there, trembling… confused… suffering.</p>
+
+<p>I’m terrified I’m going to lose her not because she can’t be saved, but because I can’t afford to save her.</p>
+
+<p>Please help me protect Lucy. Help me fight for her the way she’s always loved me without question.</p>
+
+<h2>What the donations will help cover:</h2>
+<ul>
+  <li>Lucy’s emergency cancer surgery</li>
+  <li>Follow-up treatment, medication, and scans</li>
+  <li>Pain relief and recovery care</li>
+</ul>
+
+<p>Let’s give her a chance to live the life she deserves. 🐾💔</p>
+",
+  defaultLink: "https://perfectbodyme.co/paymenton"
 };
