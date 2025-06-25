@@ -3,7 +3,7 @@ const config = {
   donorName: "Julie Marie",
   donorNameAgain: "Julie Marie",
   role: "Nashville, TN",
-  imageFile: "jhon.png",
+  imageFile: "lucy.png",
   totalGoal: 30000,
   totalDonorsAt100: 394,
   donationPercentage: 56,
