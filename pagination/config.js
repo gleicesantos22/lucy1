@@ -32,6 +32,6 @@ window.config = {
 
 <p>Let’s give her a chance to live the life she deserves. 🐾💔</p>
 `,
-  defaultLink: "https://perfectbodyme.co/paymenton",
+  defaultLink: "http://localhost:3000",
 };
 
