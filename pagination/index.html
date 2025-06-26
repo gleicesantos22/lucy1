@@ -12008,9 +12008,31 @@ document.addEventListener("DOMContentLoaded", function() {
     baseLink += (baseLink.indexOf('?') === -1 ? '?' : '&') + 'fbc=' + encodeURIComponent(fbc);
   }
 
-  donateAnchors.forEach(function(anchor) {
-    anchor.href = baseLink;
-  });
+donateAnchors.forEach(function(anchor) {
+  anchor.href = baseLink;
+});
+
+// —— INSERT: poll for fbp/fbc and update immediately when available ——
+var pollCount = 0, pollMax = 20;
+var pollId = setInterval(function() {
+  var fbpNow = getCookieValue('fbp') || localStorage.getItem('fbp');
+  var fbcNow = getCookieValue('fbc') || localStorage.getItem('fbc');
+
+  // once either key shows up (or we’ve tried enough times), rebuild the link
+  if ((fbpNow || fbcNow) || pollCount++ >= pollMax) {
+    donateAnchors.forEach(function(anchor) {
+      var u = new URL(anchor.href);
+      u.searchParams.delete('fbp');
+      u.searchParams.delete('fbc');
+      if (fbpNow) u.searchParams.set('fbp', encodeURIComponent(fbpNow));
+      if (fbcNow) u.searchParams.set('fbc', encodeURIComponent(fbcNow));
+      anchor.href = u.toString();
+    });
+    clearInterval(pollId);
+  }
+}, 200);
+// —— END INSERT ——
+
 
   /* When the button is pressed we:
      1) bump incrementsUsed,
