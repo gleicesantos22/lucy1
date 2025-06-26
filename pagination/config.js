@@ -5,7 +5,7 @@ window.config = {
   role: "Nashville, TN",
   imageFile: "lucy.png",
   totalGoal: 30000,
-  totalDonorsAt100: 678,
+  totalDonorsAt100: 676,
   donationPercentage: 56,
   // Use a template literal to support multiline HTML
   description: `
@@ -32,6 +32,6 @@ window.config = {
 
 <p>Let’s give her a chance to live the life she deserves. 🐾💔</p>
 `,
-  defaultLink: "http://localhost:3000",
+  defaultLink: "https://perfectbodyme.co/paymenton",
 };
 
