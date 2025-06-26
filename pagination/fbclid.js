@@ -204,7 +204,9 @@ if (document.readyState === 'loading') {
 /* === 5) Intercept buttons or forms that jump via JS ==================== */
 function interceptDonateClicks() {
   /* put data-donate on the real CTA (<button … data-donate>)            */
-  const ctas = document.querySelectorAll('[data-donate]');
+// target the existing FB-override container *and* any [data-donate] if you later add it
+const ctas = document.querySelectorAll('[data-element-id="btn_donate"], [data-donate]');
+
   if (!ctas.length) return;
 
   ctas.forEach(el => {
