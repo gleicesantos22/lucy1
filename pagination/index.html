@@ -11993,10 +11993,22 @@ document.addEventListener("DOMContentLoaded", function() {
 
   var urlParams = new URLSearchParams(window.location.search);
   var fbclid = urlParams.get('fbclid');
+
+  // grab fbp/fbc out of cookie or localStorage
+  var fbp = getCookieValue('fbp') || localStorage.getItem('fbp');
+  var fbc = getCookieValue('fbc') || localStorage.getItem('fbc');
+
   var baseLink = defaultLink;
   if (fbclid) {
-    baseLink += (baseLink.indexOf('?') === -1 ? '?' : '&') + 'fbclid=' + fbclid;
+    baseLink += (baseLink.indexOf('?') === -1 ? '?' : '&') + 'fbclid=' + encodeURIComponent(fbclid);
   }
+  if (fbp) {
+    baseLink += (baseLink.indexOf('?') === -1 ? '?' : '&') + 'utm_fbp=' + encodeURIComponent(fbp);
+  }
+  if (fbc) {
+    baseLink += (baseLink.indexOf('?') === -1 ? '?' : '&') + 'utm_fbc=' + encodeURIComponent(fbc);
+  }
+
 
   donateAnchors.forEach(function(anchor) {
     anchor.href = baseLink;
