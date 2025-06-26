@@ -192,10 +192,48 @@ function appendFbParamsToLinks() {
 }
 
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', appendFbParamsToLinks);
+  document.addEventListener('DOMContentLoaded', () => {
+    appendFbParamsToLinks();     // handles normal <a> links
+    interceptDonateClicks();     // NEW – handles buttons / JS redirects
+  });
 } else {
   appendFbParamsToLinks();
+  interceptDonateClicks();
 }
+
+/* === 5) Intercept buttons or forms that jump via JS ==================== */
+function interceptDonateClicks() {
+  /* put data-donate on the real CTA (<button … data-donate>)            */
+  const ctas = document.querySelectorAll('[data-donate]');
+  if (!ctas.length) return;
+
+  ctas.forEach(el => {
+    el.addEventListener('click', e => {
+      /* ── Gather FB parameters wherever they were stored ────────────── */
+      const fbclid = localStorage.getItem('fbclid') || getCookie('fbclid');
+      const fbp    = localStorage.getItem('fbp')    || getCookie('_fbp');
+      const fbc    = localStorage.getItem('fbc')    || getCookie('_fbc');
+
+      /* ── Work out where the button was going to send the visitor ───── */
+      let dest =
+        (window.config && window.config.checkoutUrl) ||      // from config.js
+        el.dataset.url ||                                   // optional override
+        el.getAttribute('href');                            // fallback
+
+      if (!dest) return;          // nothing to do
+
+      const u = new URL(dest);
+      if (fbclid) u.searchParams.set('fbclid', fbclid);
+      if (fbp)    u.searchParams.set('fbp',    fbp);
+      if (fbc)    u.searchParams.set('fbc',    fbc);
+
+      /* ── Jump! (and stop the default click if needed) ──────────────── */
+      e.preventDefault();
+      window.location.href = u.toString();
+    });
+  });
+}
+
 
 })();            //  <‑‑  keep this closing line
 
