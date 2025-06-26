@@ -11990,7 +11990,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
   var defaultLink = config.defaultLink;
 
-
   var urlParams = new URLSearchParams(window.location.search);
   var fbclid = urlParams.get('fbclid');
 
@@ -12009,7 +12008,6 @@ document.addEventListener("DOMContentLoaded", function() {
     baseLink += (baseLink.indexOf('?') === -1 ? '?' : '&') + 'fbc=' + encodeURIComponent(fbc);
   }
 
-
   donateAnchors.forEach(function(anchor) {
     anchor.href = baseLink;
   });
@@ -12022,9 +12020,7 @@ document.addEventListener("DOMContentLoaded", function() {
   donateAnchors.forEach(function(anchor) {
     anchor.addEventListener('click', function(e) {
       e.preventDefault();
-
       try {
-        /* --- bump the counter in myDonationCookie --- */
         var cookieValue = getCookieValue('myDonationCookie');
         var cookieObj = cookieValue ? JSON.parse(cookieValue) : {};
 
@@ -12033,28 +12029,25 @@ document.addEventListener("DOMContentLoaded", function() {
         } else {
           cookieObj.incrementsUsed = 1;
         }
-        setMyDonationCookie(cookieObj);   // save it
+        setMyDonationCookie(cookieObj);
 
-        /* --- collect both cookies so we can ship them --- */
         var mdcStr = JSON.stringify(cookieObj);
         var viStr  = getCookieValue('visitorInfo') || '{}';
 
-        /* --- build a fresh URL that carries the data --- */
         var u = new URL(anchor.href);
         u.searchParams.set('utm_mdc', encodeURIComponent(mdcStr));
         u.searchParams.set('utm_vi',  encodeURIComponent(viStr));
 
-        /* --- go to the next page --- */
         window.location.href = u.toString();
-
       } catch (err) {
         console.log("[GeoScript] trouble preparing redirect:", err);
-        window.location.href = anchor.href; // fallback
+        window.location.href = anchor.href;
       }
     });
   });
 });
 </script>
+
 
 
 
